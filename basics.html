@@ -1,0 +1,14 @@
+<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js'>
+</script>
+<script>
+    const socket = io('http://localhost:8000')
+    console.log(socket)
+
+    socket.on('connect', (data) => {
+        console.log('data: ', data);
+        socket.on('welcome', (message) => {
+            console.log('welcome : ',message);
+        })
+        socket.emit('message', {data: 'YEYEAHHHHHH'});
+    });
+</script>
