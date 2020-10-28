@@ -16,3 +16,7 @@ io.on('connection', (socket) => {
 		io.emit('messageToClients', { text: msg.text });
 	});
 });
+io.of('/admin').on('connect', (socket) => {
+	console.log('connected to admin namespace');
+	io.of('/admin').emit('welcome', 'welcome to admin namespace');
+});
